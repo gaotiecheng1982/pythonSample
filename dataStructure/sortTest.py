@@ -1,9 +1,9 @@
 # 循环格式
-
 from dataStructure.insertSort import insertSort
 from dataStructure.bubbleSort import bubblesort
 from dataStructure.quickSort import quicksort
-
+from dataStructure.shell_Sort import shell_sort
+from dataStructure.mergeSort import mergeSort
 
 #list = map(int, sys.argv[1:])  # Get all the arguments
 
@@ -23,6 +23,12 @@ list = [67, 78, 12, 35, 99, 16, 76]
 
 
 #============insertSort.py=================
-insertSort(list)
+#insertSort(list)
+
+#===========shell sort =======================
+#shell_sort(list)
+
+#==========merge sort====================
+mergeSort(list)
 
 print(list)
