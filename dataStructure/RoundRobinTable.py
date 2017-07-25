@@ -12,7 +12,7 @@ def GenernateRoundRobinTable(k, n, argArray):
 
     m = 1  # 每次填充时，起始填充位置
     s = 1
-    while s <= k: # 总问题规模
+    while s <= k: # 总问题规模子矩阵合并计算次数
         n //= 2  # 每次折半处理
         t = 1
         while t <= n:  # 子矩阵数目进行交叉赋值
