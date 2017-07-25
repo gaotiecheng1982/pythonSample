@@ -12,18 +12,18 @@ def GenernateRoundRobinTable(k, n, argArray):
 
     m = 1  # 每次填充时，起始填充位置
     s = 1
-    while s <= k:
-        n //= 2 #每次折半处理
-
+    while s <= k: # 总问题规模
+        n //= 2  # 每次折半处理
         t = 1
-        while t <= n: # 内部上下方交叉对称赋值的循环次数
+        while t <= n:  # 子矩阵数目进行交叉赋值
             i = m + 1
-            while i <= 2 * m:  # 控制行
+            while i <= 2 * m:  # 按照行进行赋值，行内分组赋值，分组数目
                 j = m + 1
-                while j <= 2 * m:  # 控制列
+                while j <= 2 * m:  # 每组内元素个数
                     argArray[i][j + (t - 1) * m * 2] = argArray[i - m][j + (t - 1) * m * 2 - m]  # 右下角等于左上角的值
                     argArray[i][j + (t - 1) * m * 2 - m] = argArray[i - m][j + (t - 1) * m * 2]  # 左下角等于右上角的值
                     j += 1
+                print(repr(argArray[i]))
                 i += 1
             t += 1
         m *= 2
@@ -35,5 +35,5 @@ if __name__ == '__main__':
     # 总人数
     n = 8  # 总人数
     k = 3  # 2^k 阶数
-    array = [([0] * (n+1)) for i in range(n+1)]
+    array = [([0] * (n + 1)) for i in range(n + 1)]
     GenernateRoundRobinTable(k, n, array)
