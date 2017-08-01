@@ -1,3 +1,4 @@
+# -*-coding:gbk-*-
 # 冒泡排序 二层循环格式
 def bubblesort(A):
     n = len(A)
