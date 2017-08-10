@@ -58,8 +58,8 @@ if __name__ == "__main__":
     a = "ABCBDAB"
     b = "BDCABA"
 
-    l, direct = lcs_len(a, b)
+    length, direct = lcs_len(a, b)
     lcs = get_lcs(direct, a, len(a) - 1, len(b) - 1)
 
-    print("the length of lcs is:", l[len(a)][len(b)])
+    print("the length of lcs is:", length[len(a)][len(b)])
     print("one of the lcs:", "".join(lcs))
