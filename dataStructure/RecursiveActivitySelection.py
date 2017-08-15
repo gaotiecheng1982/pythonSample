@@ -8,7 +8,6 @@ single person, one at a time"""
 # n --> Total number of activities
 # s[]--> An array that contains start time of all activities
 # f[] --> An array that conatins finish time of all activities
-
 def printMaxActivities(stTime, fnsTime):
     atvCount = len(fnsTime)
     print("The following activities are selected")
@@ -28,16 +27,21 @@ def printMaxActivities(stTime, fnsTime):
             i = j
 
 
-def recursive_activity_selector(started, finished, result, i, j):
-    if i >= j:
+# n --> Total number of activities
+# si --> start time index of activity
+# stTime[]--> An array that contains start time of all activities
+# fnsTime[] --> An array that conatins finish time of all activities
+def recursive_activity_selector(stTime, fnsTime, result, si, n):
+    if si >= n:
         return
-    l = i + 1
-    while l <= j:
-        if started[l] >= finished[i] and finished[l] <= started[j]:
-            result.append(l)
-            break
-        l += 1
-    recursive_activity_selector(started, finished, result, l, j);
+    avl = si + 1
+    while avl <= n and stTime[avl] < fnsTime[si]:
+        avl += 1
+    if avl <= n:
+        result.append(avl)
+        recursive_activity_selector(stTime, fnsTime, result, avl, n);
+    else:
+        return
 
 
 if __name__ == '__main__':
@@ -50,3 +54,4 @@ if __name__ == '__main__':
     n = len(s) - 1
     i = 0
     recursive_activity_selector(s, f, result, i, n)
+    print(str(result))
