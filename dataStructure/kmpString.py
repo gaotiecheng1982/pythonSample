@@ -1,17 +1,18 @@
 #!/usr/bin/env python
 # encoding:utf8
 def next(pattern):
-    p_len = len(pattern)
+    p_len = len(pattern) #模版字符串长度
 
-    pos = [-1] * p_len
-    j = -1
-    for i in range(1, p_len):
-        while j > -1 and pattern[j + 1] != pattern[i]:
-            j = pos[j]
-    if pattern[j + 1] == pattern[i]:
-        j = j + 1
-    pos[i] = j
-    return pos
+    next = [-1] * p_len #模版字符串的所有字符的最大前后缀长度为0
+    k = -1
+
+    for i in range(1, p_len): #for循环，从第二个字符开始，依次计算每一个字符对应的next值
+        while k > -1 and pattern[k + 1] != pattern[i]:
+            k = next[k]
+        if pattern[k + 1] == pattern[i]:#如果相等，那么最大相同前后缀长度加1
+            k = k + 1
+        next[i] = k
+    return next
 
 def kmp(ss, pattern):
     pos = next(pattern)
@@ -28,4 +29,4 @@ def kmp(ss, pattern):
             print ('matched @: %s' % str(i - pattern_len + 1))
             j = pos[j]
 
-kmp(u'上海自来水来自海上海', u'上海')
+kmp(u'BBC ABCDAB AGCTAGCAGCTAGCTsAGCTAGCAGCTAGCT', u'AGCTAGCAGCTAGCT')
