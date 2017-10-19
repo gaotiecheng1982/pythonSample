@@ -14,19 +14,20 @@ def next(pattern):
         next[i] = k
     return next
 
-def kmp(ss, pattern):
-    pos = next(pattern)
+def kmp(fString, pattern):
+    pNext = next(pattern)
 
-    ss_len = len(ss)
+    ss_len = len(fString)
     pattern_len = len(pattern)
-    j = -1
-    for i in range(ss_len):
-        while j > -1 and pattern[j + 1] != ss[i]:
-            j = pos[j]
-        if pattern[j + 1] == ss[i]:
-            j = j + 1
-        if j == pattern_len - 1:
-            print ('matched @: %s' % str(i - pattern_len + 1))
-            j = pos[j]
+    pj = -1
+    for si in range(ss_len):
+        #pattern首字母相同进入比较运算
+        while pj > -1 and pattern[pj + 1] != fString[si]:
+            pj = pNext[pj]
+        if pattern[pj + 1] == fString[si]:
+            pj = pj + 1
+        if pj == pattern_len - 1:
+            print ('matched @: %s' % str(si - pattern_len + 1))
+            pj = pNext[pj]
 
 kmp(u'BBC ABCDAB AGCTAGCAGCTAGCTsAGCTAGCAGCTAGCT', u'AGCTAGCAGCTAGCT')
