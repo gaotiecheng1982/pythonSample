@@ -49,9 +49,7 @@ def knapSack(W , wt , val , n):
 	else:
 		return max(val[n-1] + knapSack(W-wt[n-1] , wt , val , n-1),
 				knapSack(W , wt , val , n-1))
-
 # end of function knapSack
-
 
 if __name__ == '__main__':
     quantity = 5  # things quantity
