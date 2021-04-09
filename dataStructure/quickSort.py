@@ -11,7 +11,6 @@ def partition(list, start, end):
 
     done = 0
     while not done:  # Until all elements are partitioned...
-
         while not done:  # Until we find an out of place element...
             bottom = bottom + 1  # ... move the bottom up.
 

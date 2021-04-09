@@ -1,10 +1,12 @@
-from dataStructure.bubbleSort import bubblesort
 # list = map(int, sys.argv[1:])  # Get all the arguments
+from dataStructure.bubbleSort.combSort import combsort
 
 list = [67, 78, 12, 35, 99, 16, 76]
 
 # -------bubblesort -------------
-bubblesort(list)
+#bubblesort(list)
+#cocktail(list)
+combsort(list)
 # print(list)
 
 # for i in range(0,6,1):
